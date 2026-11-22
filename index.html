@@ -1181,7 +1181,7 @@
         >
           <!-- Background Image & Atmospheric Overlays -->
           <img
-            src="https://i.postimg.cc/KcTjkZvJ/1.png"
+            src="https://i.postimg.cc/8cbhqgCJ/1212121212.jpg"
             alt="Đà Lạt Sương Mù"
             class="absolute inset-0 w-full h-full object-cover object-center opacity-35 scale-105 pointer-events-none select-none"
           />
@@ -1911,7 +1911,7 @@
             <!-- Hình nền chìm khu vực Timeline Tổng Quan -->
             <img
               id="timeline-watermark-img"
-              src="https://i.postimg.cc/KcTjkZvJ/1.png"
+              src="https://i.postimg.cc/8cbhqgCJ/1212121212.jpg"
               alt=""
               aria-hidden="true"
               class="timeline-watermark-img"
@@ -3445,7 +3445,7 @@
             id="outer-lock-title"
             class="text-xl font-black text-slate-800 dark:text-white mb-2"
           >
-            XÁC NHẬN TRUY CẬP
+            ARE YOU READY?
           </h3>
           <p
             class="text-sm text-slate-600 dark:text-slate-300 font-medium leading-relaxed"
@@ -5614,10 +5614,10 @@
 
         const deltaOuter =
           extraOuterSpins +
-          (((targetOuterMod - currentOuterMod) % TWO_PI) + TWO_PI) % TWO_PI;
+          ((((targetOuterMod - currentOuterMod) % TWO_PI) + TWO_PI) % TWO_PI);
         const deltaInner = -(
           extraInnerSpins +
-          (((currentInnerMod - targetInnerMod) % TWO_PI) + TWO_PI) % TWO_PI
+          ((((currentInnerMod - targetInnerMod) % TWO_PI) + TWO_PI) % TWO_PI)
         );
 
         const durationMs = 5600;
@@ -6048,7 +6048,10 @@
               { citizen: "Chợ Đêm Đà Lạt", spy: "Chợ Bến Thành" },
               { citizen: "Lẩu Gà Lá É", spy: "Lẩu Thái Chua Cay" },
               { citizen: "Mongo Land Tà Nung", spy: "Thảo Nguyên Mông Cổ" },
-              { citizen: "Săn Mây Đồi Măng Linh", spy: "Ngắm Sao Đỉnh Langbiang" },
+              {
+                citizen: "Săn Mây Đồi Măng Linh",
+                spy: "Ngắm Sao Đỉnh Langbiang",
+              },
               { citizen: "Bánh Căn 31", spy: "Bánh Khọt Vũng Tàu" },
             ];
             const chosen = pairs[Math.floor(Math.random() * pairs.length)];
@@ -6567,12 +6570,7 @@
               {
                 emojis: "🥑 + 🍨 + 🥥",
                 ans: "Kem bơ Đà Lạt",
-                opts: [
-                  "Sữa đậu nành",
-                  "Chè thái",
-                  "Kem bơ Đà Lạt",
-                  "Bánh căn",
-                ],
+                opts: ["Sữa đậu nành", "Chè thái", "Kem bơ Đà Lạt", "Bánh căn"],
               },
             ];
             let rIdx = 0;
@@ -6590,26 +6588,24 @@
                       </div>
                     </div>
                   `;
-              container
-                .querySelectorAll("[data-riddle-opt]")
-                .forEach((btn) => {
-                  btn.addEventListener("click", () => {
-                    if (btn.dataset.riddleOpt === cur.ans) {
-                      btn.classList.add("correct");
-                      setTimeout(() => {
-                        rIdx++;
-                        if (rIdx >= riddles.length) {
-                          completeGdGame("charades", 90, game.title);
-                          closeGdModal();
-                        } else {
-                          renderRiddle();
-                        }
-                      }, 500);
-                    } else {
-                      btn.classList.add("wrong");
-                    }
-                  });
+              container.querySelectorAll("[data-riddle-opt]").forEach((btn) => {
+                btn.addEventListener("click", () => {
+                  if (btn.dataset.riddleOpt === cur.ans) {
+                    btn.classList.add("correct");
+                    setTimeout(() => {
+                      rIdx++;
+                      if (rIdx >= riddles.length) {
+                        completeGdGame("charades", 90, game.title);
+                        closeGdModal();
+                      } else {
+                        renderRiddle();
+                      }
+                    }, 500);
+                  } else {
+                    btn.classList.add("wrong");
+                  }
                 });
+              });
             }
             renderRiddle();
             break;
@@ -6617,13 +6613,25 @@
 
           case "wheel": {
             const dares = [
-              "Hát 1 đoạn điệp khúc về Đà Lạt",
+              "Hát 1 đoạn điệp khúc về bất kỳ nín thở trong khi hát",
               "Kể 1 bí mật chưa từng bật mí",
               "Mời người bên trái 1 ly nước",
               "Tạo dáng siêu ngầu chụp 1 tấm ảnh",
               "Khen ngợi Leader Gia Bảo 3 câu",
               "Nhảy 1 điệu nhảy tự do 15 giây",
+              "Đọ chớp mắt với 1 bạn khác. Ai chớp mắt trước sẽ phải chịu phạt.",
+              "Chọn 1 bạn bất kỳ và tự tay trang điểm (tô son, kẻ mày, đánh má hồng...) cho bạn trong 2 phút và giữ nguyên giao diện đó qua 3 vòng tiếp theo.",
+              "Diễn viên điện ảnh: Chọn 1 bạn khác giới để cùng tái hiện lại một cảnh phim ngôn tình hoặc kiếm hiệp kinh điển do 6 người còn lại chỉ đạo diễn xuất.",
+              "Hoán đổi phong cách: Đổi áo khoác hoặc toàn bộ phụ kiện (kính, mũ, túi xách, đồng hồ...) với một bạn khác giới và tạo dáng chụp ảnh 'ngầu' nhất có thể.",
+              "Đại chiến 2 đội: Chia nhóm thành 2 đội (mỗi đội gồm 2 nam - 2 nữ), thi hát nối chữ hoặc nối từ trong 1 phút. Đội nào bí từ trước sẽ phải làm theo 1 yêu cầu của đội thắng.",
+              "Tam sao thất bản: chia làm 2 đội, xếp thành một hàng dọc. Người đầu tiên xem một cụm từ khó và diễn tả bằng hành động (không phát ra tiếng) truyền lần lượt đến người thứ cuối. Nếu đoán sai, cả nhóm cùng nhảy một điệu nhảy ngớ ngẩn.",
+              "Ai là người nguy hiểm nhất?: Tất cả 8 người cùng nhắm mắt. Khi người quản trò đếm 1 - 2 - 3, mọi người đồng loạt chỉ tay vào người mình nghĩ là 'lầy lội/nguy hiểm nhất nhóm'. Ai nhận nhiều phiếu nhất sẽ chịu phạt.",
+              "Nhịn cười cực hạn: Ngậm một ngụm nước trong miệng và cố gắng giữ nguyên trong 45 giây, trong khi 7 người còn lại được phép dùng mọi cách (trừ chạm vào người) để chọc cười.",
+              "Gõ phím bằng... mũi: Dùng đầu mũi (hoặc khuỷu tay) để gõ một câu có nghĩa đầy đủ gửi vào nhóm chat chung của 8 người.",
+              "Bản tin dự báo tình cảm: Đứng dậy đóng vai MC truyền hình, dự báo 'tình hình đường tình duyên' của từng thành viên trong nhóm 8 người với phong thái nghiêm túc nhất.",
+              "Ca sĩ bất đắc dĩ: Hát một bài hát thiếu nhi (như Con cò bé bé, Một con vịt) nhưng phải thể hiện theo phong cách nhạc Rap cực ngầu hoặc nhạc Opera đầy bi lụy.",
             ];
+
             let rot = 0;
             container.innerHTML = `
                   <div class="game-panel">
@@ -6654,11 +6662,51 @@
 
           case "truth": {
             const truths = [
+              "Trong nhóm này, bạn thấy ai là người khó hiểu nhất?",
+              "Bạn từng thích ai trong nhóm này chưa?",
+              "Nếu phải đi du lịch riêng 2 ngày với một người trong nhóm, bạn sẽ chọn ai?",
+              "Lần gần nhất bạn stalk Facebook/Instagram/TikTok của ai là ai?",
+              "Bạn từng nói dối bạn thân chuyện gì mà đến giờ vẫn chưa bị phát hiện?",
+              "Ai trong nhóm là người bạn nghĩ sẽ kết hôn sớm nhất?",
+              "Bạn đã từng giả vờ bận để từ chối đi chơi với ai chưa?",
+              "Điều xấu hổ nhất bạn từng làm khi say hoặc mất kiểm soát là gì?",
+              "Nếu được đổi cuộc đời với một người trong nhóm trong 1 tuần, bạn chọn ai?",
+              "Bạn từng ghen với một người bạn thân vì điều gì?",
+              "Ai trong nhóm có gu người yêu khiến bạn khó hiểu nhất?",
+              "Bạn từng nhắn tin cho người yêu cũ hoặc crush rồi hối hận chưa?",
+              "Có ai bạn từng không thích nhưng sau này lại thân không?",
+              "Nếu phải loại một người khỏi nhóm chat trong 24 giờ, bạn chọn ai?",
+              "Bạn từng thích 2 người cùng lúc chưa?",
+              "Điều gì bạn muốn thay đổi nhất ở bản thân nhưng chưa làm được?",
+              "Bạn từng đọc trộm tin nhắn của người khác chưa?",
+              "Ai trong nhóm là người có khả năng ngoại tình cao nhất? (Phải giải thích lý do)",
+              "Nếu được quay lại một khoảnh khắc trong quá khứ, bạn muốn thay đổi điều gì?",
+              "Bí mật nào của bạn mà rất ít người trong nhóm biết?",
               "Ai trong nhóm 8 Kế Toán Bất Ổn là người chuẩn bị đồ lâu nhất?",
               "Món ăn nào ở Đà Lạt bạn mong chờ được thưởng thức nhất?",
               "Kỷ niệm hài hước nhất của bạn với nhóm trước chuyến đi này là gì?",
             ];
             const challenges = [
+              "Gọi điện cho một người bất kỳ và hát Happy Birthday dù không phải sinh nhật họ.",
+              "Đăng Story với nội dung: 'Tôi nghĩ mình đã sẵn sàng cho một mối quan hệ...' trong 10 phút.",
+              "Cho cả nhóm chọn một emoji, nhắn emoji đó cho crush và không được giải thích trong 5 phút.",
+              "Bắt chước một người trong nhóm cho đến khi mọi người đoán ra.",
+              "Đọc to 3 tin nhắn gần nhất trong Messenger (được quyền bỏ qua thông tin riêng tư).",
+              "Nhảy TikTok 30 giây theo bài hát do cả nhóm chọn.",
+              "Nói chuyện bằng giọng miền khác trong 3 vòng chơi.",
+              "Để cả nhóm đặt biệt danh cho mình và phải dùng biệt danh đó đến hết buổi.",
+              "Gọi video cho một người bạn và nói: 'Tao có chuyện quan trọng muốn nói...' rồi kể một chuyện cực kỳ vô tri.",
+              "Để người bên cạnh tạo một kiểu tóc thật kỳ lạ cho mình.",
+              "Nhắm mắt và đoán tên 3 người bằng cách chạm vào tay họ.",
+              "Đọc tin nhắn gần nhất bạn gửi với giọng MC truyền hình.",
+              "Tạo dáng chụp ảnh như người mẫu quảng cáo dầu gội trong 1 phút.",
+              "Để cả nhóm chọn một bức ảnh trong điện thoại (không có ảnh riêng tư) và bạn phải đăng Story trong 10 phút.",
+              "Rap freestyle 30 giây về một người bất kỳ trong nhóm.",
+              "Nói lời tỏ tình cực kỳ nghiêm túc với một chiếc ghế.",
+              "Để người bên cạnh vẽ một hình lên tay bạn bằng bút có thể rửa sạch.",
+              "Giả vờ là hướng dẫn viên du lịch và giới thiệu căn phòng như một địa điểm nổi tiếng.",
+              "Chọn một người trong nhóm, nhìn vào mắt họ và nói 3 điều bạn thật sự thích ở họ.",
+              "Để cả nhóm chọn một bài hát, bạn phải hát bài đó với cảm xúc như vừa chia tay người yêu.",
               "Gửi ngay 1 tin nhắn thoại 'Đà Lạt ơi tụi mình tới đây!' vào nhóm chat.",
               "Làm biểu cảm lạnh giá 14 độ C của Đà Lạt trong 10 giây.",
               "Chọn 1 thành viên bất kỳ để chụp ảnh đôi tạo dáng chữ V.",
@@ -6732,7 +6780,8 @@
               } else if (state === "waiting") {
                 clearTimeout(timeoutId);
                 state = "idle";
-                msg.textContent = "😅 Bấm sớm quá trời còn tối! Bấm lại để thử.";
+                msg.textContent =
+                  "😅 Bấm sớm quá trời còn tối! Bấm lại để thử.";
               } else if (state === "ready") {
                 const diff = Math.round(performance.now() - startTime);
                 state = "done";
@@ -6907,10 +6956,7 @@
               renderWheelInputs();
               resizeAndDrawWheel();
             }
-            if (
-              data.wheelHistory &&
-              Array.isArray(data.wheelHistory.payload)
-            ) {
+            if (data.wheelHistory && Array.isArray(data.wheelHistory.payload)) {
               spinHistory = data.wheelHistory.payload;
               localStorage.setItem(
                 "dalat_wheel_spin_history_v1",
@@ -6928,10 +6974,7 @@
               updateGdStatsUI();
               renderGdGrid();
             }
-            if (
-              data.auditHistory &&
-              Array.isArray(data.auditHistory.payload)
-            ) {
+            if (data.auditHistory && Array.isArray(data.auditHistory.payload)) {
               localStorage.setItem(
                 AUDIT_HISTORY_KEY,
                 JSON.stringify(data.auditHistory.payload),
@@ -6988,11 +7031,13 @@
           ?.addEventListener("click", toggleTheme);
 
         // Main Navigation Tabs
-        document.querySelectorAll(".main-tab-btn[data-target]").forEach((btn) => {
-          btn.addEventListener("click", () => {
-            switchMainTab(btn.getAttribute("data-target"));
+        document
+          .querySelectorAll(".main-tab-btn[data-target]")
+          .forEach((btn) => {
+            btn.addEventListener("click", () => {
+              switchMainTab(btn.getAttribute("data-target"));
+            });
           });
-        });
 
         // Itinerary Subtabs
         document.querySelectorAll(".subtab-btn[data-subtab]").forEach((btn) => {
@@ -7216,10 +7261,7 @@
               .slice(0, MAX_RING_OPTIONS);
 
             if (newO.length < 2 || newI.length < 2) {
-              showNotification(
-                "Mỗi vòng cần có ít nhất 2 lựa chọn!",
-                "error",
-              );
+              showNotification("Mỗi vòng cần có ít nhất 2 lựa chọn!", "error");
               return;
             }
             outerOptions = newO;
